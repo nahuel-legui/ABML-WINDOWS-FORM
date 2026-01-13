@@ -60,6 +60,22 @@ namespace pruebaConexion
             cn.Cerrar();
             return true;
         }
+        public bool eliminarAlumno(int id)
+        {
+            string consulta = "delete from alumno where idAlumno =@idAlumno";
+            SqlCommand cmd = new SqlCommand(consulta, cn.conectar);
+            cmd.Parameters.AddWithValue("@idAlumno", id);
+    
+            cn.Abrir();
+            int fila = cmd.ExecuteNonQuery();
+            if (fila == 0)
+            {
+                MessageBox.Show("ERROR AL ELIMINAR AL ALUMNO");
+                return false;
+            }
+            cn.Cerrar();
+            return true;
+        }
 
 
     }

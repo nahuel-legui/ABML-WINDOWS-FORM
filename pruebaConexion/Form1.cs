@@ -76,5 +76,28 @@ namespace pruebaConexion
             }
 
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvAlumnos.CurrentRow != null)
+            {
+                
+                int idAlumno = int.Parse(dgvAlumnos.CurrentRow.Cells["idAlumno"].Value.ToString());
+
+                if (a1.eliminarAlumno(idAlumno))
+                {
+                    MessageBox.Show("ALUMNO ELIMINADO CORRECTAMENTE");
+                }
+      
+                //refresca la grilla  
+                dgvAlumnos.DataSource = a1.listarAlumno();
+
+            }
+            else
+            {
+                MessageBox.Show("POR FAVOR SELECCIONE UNA FILA ");
+            }
+
+        }
     }
 }
