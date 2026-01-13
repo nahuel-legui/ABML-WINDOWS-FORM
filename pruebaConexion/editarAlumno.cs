@@ -28,6 +28,7 @@ namespace pruebaConexion
             AlumnoDAO alumDao = new AlumnoDAO();
             if (alumDao.actualizarAlumno(tbxNombre.Text,tbxCarrera.Text,int.Parse (tbxEdad.Text),idAlumno) )
             {
+
                 MessageBox.Show("ALUMNO ACTUALIZADO CORRECTAMENTE");
                 
             }
